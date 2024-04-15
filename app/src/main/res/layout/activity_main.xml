@@ -5,71 +5,86 @@
     android:background="@color/background_color">
 
     <!-- Background Image -->
+
+    <!-- Source Input Field -->
+
+    <!-- Destination Input Field -->
+
     <ImageView
         android:id="@+id/background_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/img"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/img" />
 
-    <!-- Source Input Field -->
+    <!-- GoFlight Awarded Text -->
+    <TextView
+        android:id="@+id/awarded_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="350dp"
+        android:text="GoFlight - Awarded the Best Flight App"
+        android:textColor="@color/text_color"
+        android:textSize="22sp" />
+
     <EditText
         android:id="@+id/source_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="24dp"
+        android:layout_below="@id/awarded_text"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="90dp"
         android:hint="Enter Source"
-        android:textColorHint="@color/hint_text_color"
+        android:inputType="text"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:inputType="text"
-        android:textColor="@color/text_color"/>
+        android:textColor="@color/text_color"
+        android:textColorHint="@color/hint_text_color" />
 
-    <!-- Destination Input Field -->
     <EditText
         android:id="@+id/destination_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/source_input"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="90dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="90dp"
         android:hint="Enter Destination"
-        android:textColorHint="@color/hint_text_color"
+        android:inputType="text"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:inputType="text"
-        android:textColor="@color/text_color"/>
+        android:textColor="@color/text_color"
+        android:textColorHint="@color/hint_text_color" />
 
-    <!-- Departure Date Input Field -->
-    <EditText
-        android:id="@+id/departure_date_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/destination_input"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/edit_text_background"
-        android:hint="Select Departure Date"
-        android:textColorHint="@color/hint_text_color"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:inputType="text"
-        android:textColor="@color/text_color"/>
-
-    <!-- Search Flight Button -->
     <Button
         android:id="@+id/search_flight_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/departure_date_input"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_background"
         android:text="Search Flights"
-        android:textColor="@color/white"
-        android:background="@drawable/button_background"/>
+        android:textColor="@color/white" />
+
+    <EditText
+        android:id="@+id/departure_date_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/destination_input"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="90dp"
+        android:hint="Select Departure Date"
+        android:inputType="text"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="@color/text_color"
+        android:textColorHint="@color/hint_text_color" />
+    <!-- Departure Date Input Field -->
+
+    <!-- Search Flight Button -->
 
 </RelativeLayout>
