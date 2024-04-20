@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Passenger Information"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
+
+    <!-- First Name -->
+    <EditText
+        android:id="@+id/etFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="First Name"/>
+
+    <!-- Last Name -->
+    <EditText
+        android:id="@+id/etLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Last Name"/>
+
+    <!-- Mobile Number -->
+    <EditText
+        android:id="@+id/etMobileNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mobile Number"/>
+
+    <!-- Nationality -->
+    <EditText
+        android:id="@+id/etNationality"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nationality"/>
+
+    <!-- Passport Number -->
+    <EditText
+        android:id="@+id/etPassportNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Passport Number"/>
+
+    <!-- Date of Birth (Use a DatePicker or custom date input) -->
+    <!-- Example: -->
+    <EditText
+        android:id="@+id/etDateOfBirth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date of Birth"
+        android:inputType="date"/>
+
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"/>
+
+    <!-- Add more fields as needed -->
+
+</LinearLayout>
