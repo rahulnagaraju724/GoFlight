@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private static DatabaseHelper dbHelper;
@@ -20,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ManualFlightDataGenerator manualFlightDataGenerator=new ManualFlightDataGenerator(this);
+        manualFlightDataGenerator.generateManualFlightData();
 
         dbHelper = new DatabaseHelper(this);
         db = dbHelper.getWritableDatabase(); // This will create or open the database for writing
@@ -37,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
             String destination = destinationInput.getText().toString();
             String departureDate = departureDateInput.getText().toString();
             System.out.println("Source:"+source+" Destination:"+destination+" and departureDate:"+departureDate);
+            List<Flight> flights=dbHelper.searchFlights(source,destination,departureDate);
+            for(Flight flight:flights){
+                System.out.println("Inside new flight");
+                System.out.println(flight.toString());
+            }
         });
 
     }

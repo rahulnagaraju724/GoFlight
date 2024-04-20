@@ -10,37 +10,37 @@ import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "flight_booking.db";
-    private static final int DATABASE_VERSION = 1;
+    public static final String DATABASE_NAME = "flight_booking.db";
+    public static final int DATABASE_VERSION = 1;
 
     // Flight table
-    private static final String TABLE_FLIGHT = "flight";
-    private static final String COLUMN_FLIGHT_ID = "flight_id";
-    private static final String COLUMN_SOURCE = "source";
-    private static final String COLUMN_DESTINATION = "destination";
-    private static final String COLUMN_FLIGHT_NAME = "flight_name";
-    private static final String COLUMN_AIRLINE_NAME = "airline_name";
-    private static final String COLUMN_DEPARTURE_DATE = "departure_date";
-    private static final String COLUMN_ARRIVAL_DATE = "arrival_date";
-    private static final String COLUMN_PRICE = "price";
+    public static final String TABLE_FLIGHT = "flight";
+    public static final String COLUMN_FLIGHT_ID = "flight_id";
+    public static final String COLUMN_SOURCE = "source";
+    public static final String COLUMN_DESTINATION = "destination";
+    public static final String COLUMN_FLIGHT_NAME = "flight_name";
+    public static final String COLUMN_AIRLINE_NAME = "airline_name";
+    public static final String COLUMN_DEPARTURE_DATE = "departure_date";
+    public static final String COLUMN_ARRIVAL_DATE = "arrival_date";
+    public static final String COLUMN_PRICE = "price";
 
     // Passenger table
-    private static final String TABLE_PASSENGER = "passenger";
-    private static final String COLUMN_PASSENGER_ID = "passenger_id";
-    private static final String COLUMN_PASSENGER_NAME = "passenger_name";
-    private static final String COLUMN_FIRST_NAME = "first_name";
-    private static final String COLUMN_LAST_NAME = "last_name";
-    private static final String COLUMN_MOBILE_NUMBER = "mobile_number";
-    private static final String COLUMN_NATIONALITY = "nationality";
-    private static final String COLUMN_PASSPORT = "passport";
-    private static final String COLUMN_DATE_OF_BIRTH = "date_of_birth";
+    public static final String TABLE_PASSENGER = "passenger";
+    public static final String COLUMN_PASSENGER_ID = "passenger_id";
+    public static final String COLUMN_PASSENGER_NAME = "passenger_name";
+    public static final String COLUMN_FIRST_NAME = "first_name";
+    public static final String COLUMN_LAST_NAME = "last_name";
+    public static final String COLUMN_MOBILE_NUMBER = "mobile_number";
+    public static final String COLUMN_NATIONALITY = "nationality";
+    public static final String COLUMN_PASSPORT = "passport";
+    public static final String COLUMN_DATE_OF_BIRTH = "date_of_birth";
 
     // Booking table
-    private static final String TABLE_BOOKING = "booking";
-    private static final String COLUMN_BOOKING_ID = "booking_id";
-    private static final String COLUMN_BOOKING_DATE = "booking_date";
-    private static final String COLUMN_SEAT_NUMBER = "seat_number";
-    private static final String COLUMN_PAYMENT_STATUS = "payment_status";
+    public static final String TABLE_BOOKING = "booking";
+    public static final String COLUMN_BOOKING_ID = "booking_id";
+    public static final String COLUMN_BOOKING_DATE = "booking_date";
+    public static final String COLUMN_SEAT_NUMBER = "seat_number";
+    public static final String COLUMN_PAYMENT_STATUS = "payment_status";
 
     // Create table queries
     private static final String CREATE_TABLE_FLIGHT = "CREATE TABLE " + TABLE_FLIGHT + "("
@@ -102,7 +102,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-    private List<Flight> searchFlights(String source, String destination, String departureDate) {
+    public List<Flight> searchFlights(String source, String destination, String departureDate) {
         List<Flight> flights = new ArrayList<>();
 
         SQLiteDatabase db = this.getWritableDatabase(); // Obtain a reference to the writable database
