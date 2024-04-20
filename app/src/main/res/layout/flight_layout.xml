@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    android:padding="16dp">
+
+        <TextView
+            android:id="@+id/flightNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Flight Name"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <!-- Add other TextViews for source, destination, departure date, arrival date, and price -->
+        <!-- Example: -->
+        <TextView
+            android:id="@+id/sourceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Source: {source}" />
+
+        <TextView
+            android:id="@+id/destinationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Destination: {destination}" />
+
+        <TextView
+            android:id="@+id/departureDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Departure Date: {departureDate}" />
+
+        <TextView
+            android:id="@+id/arrivalDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Arrival Date: {arrivalDate}" />
+
+        <TextView
+            android:id="@+id/priceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: {price}" />
+
+        <!-- You can also include an ImageView for displaying airline logos, if needed -->
+
+
+</LinearLayout>
