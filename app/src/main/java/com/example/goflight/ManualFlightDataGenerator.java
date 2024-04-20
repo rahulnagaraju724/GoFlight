@@ -19,7 +19,7 @@ public class ManualFlightDataGenerator {
         database = dbHelper.getWritableDatabase();
 
         // Flight 1
-        insertFlight("New York", "Los Angeles", "Delta", "DL101", "2024-04-20 08:00", "2024-04-20 11:00", 350.0);
+            insertFlight("New York", "Los Angeles", "Delta", "DL101", "2024-04-20 08:00", "2024-04-20 11:00", 350.0);
 
         // Flight 2
         insertFlight("London", "Paris", "British Airways", "BA202", "2024-04-21 10:00", "2024-04-21 12:00", 200.0);
