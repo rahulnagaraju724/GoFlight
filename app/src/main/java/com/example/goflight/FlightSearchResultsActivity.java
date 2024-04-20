@@ -36,6 +36,14 @@ public class FlightSearchResultsActivity extends AppCompatActivity {
         // Perform flight search using the search parameters
         List<Flight> flights = dbHelper.searchFlights(source, destination, departureDate);
 
+        for(Flight flight:flights){
+
+            flight.calculateDuration();
+
+            System.out.println(flight.toString());
+
+        }
+
         // Update RecyclerView with search results
         flightAdapter.setFlights(flights);
         flightAdapter.notifyDataSetChanged();

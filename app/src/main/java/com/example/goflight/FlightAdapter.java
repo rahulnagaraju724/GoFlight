@@ -3,6 +3,7 @@ package com.example.goflight;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,6 +34,8 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.FlightView
         TextView arrivalDetailsTextView;
         TextView priceTextView;
 
+        ImageView airlineLogoImageView;
+
         public FlightViewHolder(@NonNull View itemView) {
             super(itemView);
             airlineNameTextView = itemView.findViewById(R.id.airline_name_text_view);
@@ -40,6 +43,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.FlightView
             departureDetailsTextView = itemView.findViewById(R.id.departure_details_text_view);
             arrivalDetailsTextView = itemView.findViewById(R.id.arrival_details_text_view);
             priceTextView = itemView.findViewById(R.id.price_text_view);
+            airlineLogoImageView=itemView.findViewById(R.id.airline_logo_image_view);
         }
     }
 
@@ -60,6 +64,9 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.FlightView
         holder.departureDetailsTextView.setText(flight.getDepartureDate());
         holder.arrivalDetailsTextView.setText(flight.getArrivalDate());
         holder.priceTextView.setText(String.valueOf(flight.getPrice()));
+
+        // Load the image resource directly to the ImageView
+        holder.airlineLogoImageView.setImageResource(R.drawable.img_1); // Assuming img_1 is your image resource
     }
 
     @Override
