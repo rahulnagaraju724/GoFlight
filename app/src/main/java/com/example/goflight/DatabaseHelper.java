@@ -1,5 +1,6 @@
 package com.example.goflight;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -138,4 +139,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return flights;
     }
+
+    public long saveBooking(Booking booking) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        // Add booking details to ContentValues
+        // Add booking details to ContentValues
+        values.put(COLUMN_FLIGHT_ID, booking.getFlight().getFlightId());
+        values.put(COLUMN_PASSENGER_ID,booking.getPassenger().getPassengerId());
+        values.put(COLUMN_BOOKING_DATE, booking.getBookingDate());
+        values.put(COLUMN_SEAT_NUMBER, booking.getSeatNumber());
+        values.put(COLUMN_PRICE, booking.getPrice());
+        values.put(COLUMN_PAYMENT_STATUS, booking.getPaymentStatus());
+
+        // Insert the ContentValues into the database
+        return db.insert(TABLE_BOOKING, null, values);
+    }
+
+    public long savePassenger(Passenger passenger){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        // Add booking details to ContentValues
+        // Add booking details to ContentValues
+
+        values.put(COLUMN_FIRST_NAME, passenger.getFirstName());
+        values.put(COLUMN_LAST_NAME,passenger.getLastName());
+        values.put(COLUMN_MOBILE_NUMBER, passenger.getPhoneNumber());
+        values.put(COLUMN_NATIONALITY, passenger.getNationality());
+        values.put(COLUMN_PASSPORT, passenger.getPassport());
+        values.put(COLUMN_DATE_OF_BIRTH, passenger.getDateOfBirth());
+        // Insert the ContentValues into the database
+        return db.insert(TABLE_PASSENGER, null, values);
+    }
+
 }

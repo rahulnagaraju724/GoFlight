@@ -4,25 +4,57 @@ package com.example.goflight;
 public class Booking {
     private int bookingId;
     private String bookingDate;
+
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+
     private String seatNumber;
-    private boolean paymentStatus;
+    private String paymentStatus;
+
+    private Flight flight;
+
+    private Passenger passenger;
+
+    private int price;
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public Passenger getPassenger() {
+        return passenger;
+    }
+
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
+    }
 
     public Booking() {
 
     }
 
     // Constructor
-    public Booking(int bookingId, String bookingDate, String seatNumber, boolean paymentStatus) {
+    public Booking(int bookingId, String bookingDate, String seatNumber, String paymentStatus) {
         this.bookingId = bookingId;
         this.bookingDate = bookingDate;
         this.seatNumber = seatNumber;
         this.paymentStatus = paymentStatus;
     }
 
-    public Booking(String bookingDate, String seatNumber, boolean paymentStatus) {
+    public Booking(String bookingDate, String seatNumber, String paymentStatus, int price) {
         this.bookingDate = bookingDate;
         this.seatNumber = seatNumber;
         this.paymentStatus = paymentStatus;
+        this.price=price;
     }
 
     // Getters
@@ -38,9 +70,6 @@ public class Booking {
         return seatNumber;
     }
 
-    public boolean isPaymentStatus() {
-        return paymentStatus;
-    }
 
     // Setters
     public void setBookingId(int bookingId) {
@@ -55,9 +84,7 @@ public class Booking {
         this.seatNumber = seatNumber;
     }
 
-    public void setPaymentStatus(boolean paymentStatus) {
-        this.paymentStatus = paymentStatus;
-    }
+
 
     @Override
     public String toString() {
@@ -67,5 +94,15 @@ public class Booking {
                 ", seatNumber='" + seatNumber + '\'' +
                 ", paymentStatus=" + paymentStatus +
                 '}';
+    }
+
+
+
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public void setFlight(Flight flight) {
+        this.flight = flight;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.goflight;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,10 +10,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class PassengerFormActivity extends AppCompatActivity {
 
+    private Flight selectedFlight;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.passenger);
+
+
+        // Receive selected flight details from intent extras
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra("flight")) {
+            selectedFlight = intent.getParcelableExtra("flight");
+        }
+
 
         // Initialize EditText fields
         EditText etFirstName = findViewById(R.id.etFirstName);
@@ -38,8 +48,25 @@ public class PassengerFormActivity extends AppCompatActivity {
             // Create Passenger object
             Passenger passenger = new Passenger(firstName, lastName, mobileNumber, nationality, dateOfBirth, passportNumber);
 
-            // Display Passenger details
-            Toast.makeText(PassengerFormActivity.this, passenger.toString(), Toast.LENGTH_LONG).show();
+            Booking booking=new Booking("2024-04-20 08:00","25 D","true",225);
+
+
+            System.out.println(passenger.toString());
+            System.out.println(booking.toString());
+
+            // Save booking to the database (Assuming you have a method to save booking in DatabaseHelper)
+            DatabaseHelper dbHelper = new DatabaseHelper(PassengerFormActivity.this);
+            long passengerId=dbHelper.savePassenger(passenger);
+
+//            long bookingId = dbHelper.saveBooking(booking);
+//
+//            if (bookingId != -1) {
+//                // Display booking details
+//                Toast.makeText(PassengerFormActivity.this, "Booking successful! Booking ID: " + bookingId, Toast.LENGTH_LONG).show();
+//                // You can display more booking details here if needed
+//            } else {
+//                Toast.makeText(PassengerFormActivity.this, "Failed to book the flight. Please try again.", Toast.LENGTH_SHORT).show();
+//            }
         });
     }
 }

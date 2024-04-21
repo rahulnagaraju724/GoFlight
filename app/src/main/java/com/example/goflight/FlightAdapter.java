@@ -1,5 +1,6 @@
 package com.example.goflight;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,6 +68,14 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.FlightView
 
         // Load the image resource directly to the ImageView
         holder.airlineLogoImageView.setImageResource(R.drawable.img_1); // Assuming img_1 is your image resource
+
+        // Set click listener for each flight item
+        holder.itemView.setOnClickListener(view -> {
+            // Start PassengerFormActivity and pass selected flight details as intent extras
+            Intent intent = new Intent(view.getContext(), PassengerFormActivity.class);
+            intent.putExtra("flight", String.valueOf(flight));
+            view.getContext().startActivity(intent);
+        });
     }
 
     @Override
