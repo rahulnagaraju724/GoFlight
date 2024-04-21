@@ -8,6 +8,16 @@ public class Passenger {
     private String dateOfBirth;
     private String passport;
 
+    private int passengerId;
+
+    public int getPassengerId() {
+        return passengerId;
+    }
+
+    public void setPassengerId(int passengerId) {
+        this.passengerId = passengerId;
+    }
+
     public Passenger() {
 
     }

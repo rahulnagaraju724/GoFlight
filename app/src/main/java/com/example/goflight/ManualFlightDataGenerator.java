@@ -40,7 +40,7 @@ public class ManualFlightDataGenerator {
         insertFlight("Los Angeles", "Tokyo", "American Airlines", "AA505", "2024-04-26 11:00", "2024-04-27 08:00", 850.0);
 
         // Flight 8
-        insertFlight("Paris", "Dubai", "Emirates", "EK303", "2024-04-27 13:00", "2024-04-27 19:00", 700.0);
+            insertFlight("Paris", "Dubai", "Emirates", "EK303", "2024-04-27 13:00", "2024-04-27 19:00", 700.0);
 
         // Flight 9
         insertFlight("Sydney", "New York", "Qantas", "QF101", "2024-04-28 17:00", "2024-04-29 08:00", 950.0);
