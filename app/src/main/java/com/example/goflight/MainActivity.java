@@ -1,5 +1,6 @@
 package com.example.goflight;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -9,8 +10,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
+
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
@@ -24,13 +31,55 @@ public class MainActivity extends AppCompatActivity {
     private FlightAdapter flightAdapter;
     private View recyclerView;
 
+    private FirebaseAuth mAuth;
+    private View emailEditText;
+    private View passwordEditText;
+    private View loginButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        FirebaseApp.initializeApp(this);
+//
+//        FirebaseApp.initializeApp(this);
+//
+//        mAuth = FirebaseAuth.getInstance();
+//
+//        // Find emailEditText and passwordEditText views by their IDs
+//        emailEditText = findViewById(R.id.emailEditText);
+//        passwordEditText = findViewById(R.id.passwordEditText);
+//
+//        // Cast emailEditText and passwordEditText to EditText
+//        EditText emailInput = (EditText) emailEditText;
+//        EditText passwordInput = (EditText) passwordEditText;
+//
+//        loginButton = findViewById(R.id.loginButton);
+//
+//        loginButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String email = emailInput.getText().toString();
+//                String password = passwordInput.getText().toString();
+//
+//                mAuth.signInWithEmailAndPassword(email, password)
+//                        .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+//                            @Override
+//                            public void onComplete(@NonNull Task<AuthResult> task) {
+//                                if (task.isSuccessful()) {
+//                                    // Sign in success, update UI with the signed-in user's information
+//                                    Toast.makeText(MainActivity.this, "Authentication successful.",
+//                                            Toast.LENGTH_SHORT).show();
+//                                    // Proceed to the next activity or perform desired action
+//                                } else {
+//                                    // If sign in fails, display a message to the user.
+//                                    Toast.makeText(MainActivity.this, "Authentication failed.",
+//                                            Toast.LENGTH_SHORT).show();
+//                                }
+//                            }
+//                        });
+//            }
+//        });
 
 
 //        ManualFlightDataGenerator manualFlightDataGenerator=new ManualFlightDataGenerator(this);
