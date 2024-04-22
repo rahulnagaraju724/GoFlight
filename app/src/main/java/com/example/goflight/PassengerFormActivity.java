@@ -23,6 +23,9 @@ public class PassengerFormActivity extends AppCompatActivity {
             selectedFlight = intent.getParcelableExtra("flight");
         }
 
+//        System.out.println(selectedFlight.toString());
+        int flight_id=intent.getIntExtra("flight_id",-1);
+        System.out.println("flight_id in passaneger form" + flight_id);
 
         // Initialize EditText fields
         EditText etFirstName = findViewById(R.id.etFirstName);

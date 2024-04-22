@@ -74,6 +74,8 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.FlightView
             // Start PassengerFormActivity and pass selected flight details as intent extras
             Intent intent = new Intent(view.getContext(), PassengerFormActivity.class);
             intent.putExtra("flight", String.valueOf(flight));
+            intent.putExtra("flight_id",flight.getFlightId());
+            System.out.println("flight_id in flight adapter" + flight.getFlightId());
             view.getContext().startActivity(intent);
         });
     }
