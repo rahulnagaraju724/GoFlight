@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.FirebaseApp;
+
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        FirebaseApp.initializeApp(this);
+
 
 //        ManualFlightDataGenerator manualFlightDataGenerator=new ManualFlightDataGenerator(this);
 //        manualFlightDataGenerator.generateManualFlightData();

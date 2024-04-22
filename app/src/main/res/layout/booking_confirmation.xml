@@ -1,0 +1,128 @@
+<!-- res/layout/booking_confirmation.xml -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Booking Confirmation Title -->
+    <TextView
+        android:id="@+id/text_booking_confirmation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Booking Confirmed!"
+        android:textSize="24sp"
+        android:textColor="#333333"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Flight Details -->
+    <TextView
+        android:id="@+id/text_flight_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Flight Details"
+        android:textSize="18sp"
+        android:textColor="#666666"
+        android:layout_below="@id/text_booking_confirmation"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- Flight Name -->
+    <TextView
+        android:id="@+id/text_flight_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Flight Name:"
+        android:textSize="16sp"
+        android:textColor="#444444"
+        android:layout_below="@id/text_flight_details"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/text_flight_path"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Flying from Source to Destination"
+        android:textSize="14sp"
+        android:textColor="#555555"
+        android:layout_below="@id/text_flight_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
+    <!-- Departure and Arrival Dates -->
+    <TextView
+        android:id="@+id/text_dates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Departure:  | Arrival: "
+        android:textSize="14sp"
+        android:textColor="#555555"
+        android:layout_below="@id/text_flight_path"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
+    <!-- Price -->
+    <TextView
+        android:id="@+id/text_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Price: $"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:layout_below="@id/text_dates"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- Passenger Details -->
+    <TextView
+        android:id="@+id/text_passenger_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Passenger Details"
+        android:textSize="18sp"
+        android:textColor="#666666"
+        android:layout_below="@id/text_price"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- Passenger Name -->
+    <TextView
+        android:id="@+id/text_passenger_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_passenger_details"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="Passenger Name: "
+        android:textColor="#444444"
+        android:textSize="16sp" />
+
+    <!-- Seat Number -->
+    <TextView
+        android:id="@+id/text_seat_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seat: "
+        android:textSize="14sp"
+        android:textColor="#555555"
+        android:layout_below="@id/text_passenger_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
+    <!-- Payment Status -->
+    <TextView
+        android:id="@+id/text_payment_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Payment Status: "
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:layout_below="@id/text_seat_number"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- Add any additional design elements or customization as needed -->
+
+</RelativeLayout>
