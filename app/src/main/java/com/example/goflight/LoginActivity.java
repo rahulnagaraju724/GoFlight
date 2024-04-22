@@ -53,4 +53,19 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
+
+    private void createUser(String email, String password) {
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Sign up success, proceed to login
+                        loginUser(email, password);
+                    } else {
+                        // If sign up fails, display a message to the user.
+                        Toast.makeText(LoginActivity.this, "Sign up failed.",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
 }
