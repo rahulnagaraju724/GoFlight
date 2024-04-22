@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.database.sqlite.SQLiteDatabase;
@@ -14,11 +15,14 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.FirebaseApp;
 
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.text.BreakIterator;
+import java.util.Calendar;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     private View emailEditText;
     private View passwordEditText;
     private View loginButton;
+    private Object view;
+    private TextInputEditText departureDateEditText;
 
 
     @Override
@@ -96,6 +102,10 @@ public class MainActivity extends AppCompatActivity {
         searchFlightButton = findViewById(R.id.search_flight_button);
 
 
+        departureDateEditText = findViewById(R.id.departure_date_input);
+
+
+
 
 
 //        // Retrieve input values and store them in variables when the button is clicked
@@ -131,7 +141,31 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     public static SQLiteDatabase getDatabase() {
         return db;
     }
+
+    public void showDatePicker(View view) {
+        // Get current date
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+
+        // Create DatePickerDialog
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                this,
+                (datePicker, selectedYear, selectedMonth, selectedDayOfMonth) -> {
+                    // Set selected date to TextInputEditText
+                    String selectedDate = selectedDayOfMonth + "/" + (selectedMonth + 1) + "/" + selectedYear;
+                    departureDateEditText.setText(selectedDate);
+                },
+                year, month, dayOfMonth);
+
+        // Show DatePickerDialog
+        datePickerDialog.show();
+    }
+
 }

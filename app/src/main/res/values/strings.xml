@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">GoFLight</string>
     <string name="passenger_information">Passenger Information</string>
     <string name="first_name">First Name</string>
