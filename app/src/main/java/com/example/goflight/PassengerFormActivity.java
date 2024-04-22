@@ -51,7 +51,7 @@ public class PassengerFormActivity extends AppCompatActivity {
             // Create Passenger object
             Passenger passenger = new Passenger(firstName, lastName, mobileNumber, nationality, dateOfBirth, passportNumber);
 
-            Booking booking=new Booking("2024-04-20 08:00","25 D","true",225);
+            Booking booking=new Booking("2024-04-20 08:00","25 D","true",225,"Rahul");
 
 
             System.out.println(passenger.toString());
@@ -59,17 +59,33 @@ public class PassengerFormActivity extends AppCompatActivity {
 
             // Save booking to the database (Assuming you have a method to save booking in DatabaseHelper)
             DatabaseHelper dbHelper = new DatabaseHelper(PassengerFormActivity.this);
-            long passengerId=dbHelper.savePassenger(passenger);
 
-//            long bookingId = dbHelper.saveBooking(booking);
-//
-//            if (bookingId != -1) {
-//                // Display booking details
-//                Toast.makeText(PassengerFormActivity.this, "Booking successful! Booking ID: " + bookingId, Toast.LENGTH_LONG).show();
-//                // You can display more booking details here if needed
-//            } else {
-//                Toast.makeText(PassengerFormActivity.this, "Failed to book the flight. Please try again.", Toast.LENGTH_SHORT).show();
-//            }
+            long passengerId=dbHelper.savePassenger(passenger);
+            System.out.println("Passenger Id: "+passengerId);
+
+            Flight selectedFlight = dbHelper.getFlightById(flight_id);
+            Passenger newPassenger=dbHelper.getPassengerById((int)passengerId);
+
+            booking.setPassenger(newPassenger);
+            booking.setFlight(selectedFlight);
+
+            System.out.println("After saving flight and passenger in booking:" + booking.toString());
+            System.out.println("Seleted flight"+selectedFlight.toString());
+            System.out.println("Selected Passenger"+newPassenger.toString());
+
+
+            long bookingId = dbHelper.saveBooking(booking);
+
+            if (bookingId != -1) {
+                // Display booking details
+                Toast.makeText(PassengerFormActivity.this, "Booking successful! Booking ID: " + bookingId, Toast.LENGTH_LONG).show();
+                // You can display more booking details here if needed
+            } else {
+                Toast.makeText(PassengerFormActivity.this, "Failed to book the flight. Please try again.", Toast.LENGTH_SHORT).show();
+            }
+
+
+
         });
     }
 }

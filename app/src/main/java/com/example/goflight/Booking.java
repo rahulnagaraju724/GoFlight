@@ -38,13 +38,41 @@ public class Booking {
         this.passenger = passenger;
     }
 
+    private String userName;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
     public Booking() {
 
     }
 
+    public Booking( String bookingDate, String seatNumber, String paymentStatus, int price, String userName) {
+
+        this.bookingDate = bookingDate;
+        this.seatNumber = seatNumber;
+        this.paymentStatus = paymentStatus;
+        this.price = price;
+        this.userName = userName;
+    }
+
+    public Booking( String bookingDate, String seatNumber, String paymentStatus, Flight flight, Passenger passenger, int price, String userName) {
+        this.bookingDate = bookingDate;
+        this.seatNumber = seatNumber;
+        this.paymentStatus = paymentStatus;
+        this.flight = flight;
+        this.passenger = passenger;
+        this.price = price;
+        this.userName = userName;
+    }
+
     // Constructor
-    public Booking(int bookingId, String bookingDate, String seatNumber, String paymentStatus) {
-        this.bookingId = bookingId;
+    public Booking(String bookingDate, String seatNumber, String paymentStatus) {
         this.bookingDate = bookingDate;
         this.seatNumber = seatNumber;
         this.paymentStatus = paymentStatus;
