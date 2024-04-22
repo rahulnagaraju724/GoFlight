@@ -8,15 +8,40 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class PassengerFormActivity extends AppCompatActivity {
 
     private Flight selectedFlight;
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.passenger);
 
+        mAuth = FirebaseAuth.getInstance();
+        // Get the current user
+        FirebaseUser currentUser = mAuth.getCurrentUser();
 
+        String userEmail;
+
+        if (currentUser != null) {
+            // User is signed in
+             userEmail= currentUser.getEmail();
+            Toast.makeText(this, "Current User Email: " + userEmail, Toast.LENGTH_SHORT).show();
+        } else {
+            userEmail = "";
+            // No user is signed in
+            Toast.makeText(this, "No user signed in", Toast.LENGTH_SHORT).show();
+        }
+        
         // Receive selected flight details from intent extras
         Intent intent = getIntent();
         if (intent != null && intent.hasExtra("flight")) {
@@ -51,8 +76,12 @@ public class PassengerFormActivity extends AppCompatActivity {
             // Create Passenger object
             Passenger passenger = new Passenger(firstName, lastName, mobileNumber, nationality, dateOfBirth, passportNumber);
 
-            Booking booking=new Booking("2024-04-20 08:00","25 D","Paid",225,"Rahul");
+            System.out.println("Emial"+ currentUser.getEmail());
+            Booking booking=new Booking(LocalDate.now().toString(),selectRandomSeat(),"Paid", currentUser.getEmail());
 
+
+            System.out.println("Prininting username: "+userEmail);
+            booking.setUserName(userEmail);
 
             System.out.println(passenger.toString());
             System.out.println(booking.toString());
@@ -68,6 +97,7 @@ public class PassengerFormActivity extends AppCompatActivity {
 
             booking.setPassenger(newPassenger);
             booking.setFlight(selectedFlight);
+            booking.setPrice((int) selectedFlight.getPrice());
 
             System.out.println("After saving flight and passenger in booking:" + booking.toString());
             System.out.println("Seleted flight"+selectedFlight.toString());
@@ -79,6 +109,8 @@ public class PassengerFormActivity extends AppCompatActivity {
             if (bookingId != -1) {
                 // Display booking details
                 Toast.makeText(PassengerFormActivity.this, "Booking successful! Booking ID: " + bookingId, Toast.LENGTH_LONG).show();
+                System.out.println("After saving in DB"+dbHelper.getBookingById((int) bookingId).toString());
+
                 Intent confirmationIntent = new Intent(PassengerFormActivity.this, BookingConfirmationActivity.class);
                 confirmationIntent.putExtra("bookingId", bookingId);
                 confirmationIntent.putExtra("flightId", flight_id);
@@ -93,5 +125,25 @@ public class PassengerFormActivity extends AppCompatActivity {
 
 
         });
+    }
+
+    public static List<String> generateSeatNumbers(int numberOfSeats) {
+        List<String> seatNumbers = new ArrayList<>();
+        char[] rows = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
+        int rowLength = rows.length;
+        for (int i = 1; i <= numberOfSeats; i++) {
+            int rowIndex = (i - 1) / rowLength;
+            char rowLetter = rows[rowIndex];
+            int seatNumber = (i - 1) % rowLength + 1;
+            seatNumbers.add(seatNumber + String.valueOf(rowLetter));
+        }
+        return seatNumbers;
+    }
+
+    public static String selectRandomSeat() {
+        List<String> seatNumbers=generateSeatNumbers(10);
+        Random random = new Random();
+        int index = random.nextInt(seatNumbers.size());
+        return seatNumbers.get(index);
     }
 }

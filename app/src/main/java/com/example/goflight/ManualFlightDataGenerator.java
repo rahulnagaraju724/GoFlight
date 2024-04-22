@@ -30,7 +30,7 @@ public class ManualFlightDataGenerator {
         insertFlight("Dubai", "Beijing", "Emirates", "EK888", "2024-04-23", "2024-04-23", 600.0);
 
         // Flight 5
-        insertFlight("Moscow", "Singapore", "Singapore Airlines", "SQ777", "2024-04-24", "2024-04-25", 900.0);
+            insertFlight("Moscow", "Singapore", "Singapore Airlines", "SQ777", "2024-04-24", "2024-04-25", 900.0);
 
         // Flight 6
         insertFlight("New York", "London", "Delta", "DL202", "2024-04-25", "2024-04-25", 450.0);
@@ -39,13 +39,13 @@ public class ManualFlightDataGenerator {
         insertFlight("Los Angeles", "Tokyo", "American Airlines", "AA505", "2024-04-26", "2024-04-27", 850.0);
 
         // Flight 8
-        insertFlight("Paris", "Dubai", "Emirates", "EK303", "2024-04-27", "2024-04-27", 700.0);
+            insertFlight("Paris", "Dubai", "Emirates", "EK303", "2024-04-27", "2024-04-28", 700.0);
 
         // Flight 9
-        insertFlight("Sydney", "New York", "Qantas", "QF101", "2024-04-28", "2024-04-29", 950.0);
+        insertFlight("Sydney", "New York", "Qantas", "QF101", "2024-04-27", "2024-04-29", 950.0);
 
         // Flight 10
-        insertFlight("Beijing", "Moscow", "Air China", "CA888", "2024-04-29", "2024-04-30", 500.0);
+        insertFlight("Beijing", "Moscow", "Air China", "CA888", "2024-04-27", "2024-04-29", 500.0);
 
         // Flight 11
         insertFlight("Singapore", "Los Angeles", "Singapore Airlines", "SQ308", "2024-04-30", "2024-05-01", 1200.0);
@@ -78,7 +78,7 @@ public class ManualFlightDataGenerator {
         insertFlight("Los Angeles", "Dubai", "Emirates", "EK702", "2024-05-09", "2024-05-09", 1100.0);
 
         // Flight 21
-        insertFlight("Singapore", "Moscow", "Singapore Airlines", "SQ368", "2024-05-10", "2024-05-11", 1000.0);
+            insertFlight("Singapore", "Moscow", "Singapore Airlines", "SQ368", "2024-05-10", "2024-05-11", 1000.0);
 
         // Flight 22
         insertFlight("New York", "Tokyo", "American Airlines", "AA701", "2024-05-11", "2024-05-12", 1200.0);
@@ -90,7 +90,7 @@ public class ManualFlightDataGenerator {
         insertFlight("Dubai", "London", "Emirates", "EK5", "2024-05-13", "2024-05-14", 700.0);
 
         // Flight 25
-        insertFlight("Sydney", "New York", "Qantas", "QF355", "2024-05-14", "2024-05-15", 1400.0);
+            insertFlight("Sydney", "New York", "Qantas", "QF355", "2024-05-14", "2024-05-15", 1400.0);
 
         // Close the database connection
         database.close();
