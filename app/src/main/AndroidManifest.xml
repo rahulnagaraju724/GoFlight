@@ -37,6 +37,7 @@
         <activity android:name=".FlightSearchResultsActivity" />
         <activity android:name=".PassengerFormActivity" />
         <activity android:name=".BookingConfirmationActivity"/>
+        <activity android:name=".SignupActivity"/>
     </application>
 
 </manifest>
