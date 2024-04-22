@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Booking Confirmed!"
+        android:layout_marginTop="100dp"
         android:textSize="24sp"
         android:textColor="#333333"
         android:layout_centerHorizontal="true"
@@ -122,6 +123,17 @@
         android:layout_below="@id/text_seat_number"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/userBookings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_bookings"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_button_bg"
+        android:layout_below="@id/text_payment_status"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
 
     <!-- Add any additional design elements or customization as needed -->
 

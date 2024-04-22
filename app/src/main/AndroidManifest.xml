@@ -38,6 +38,7 @@
         <activity android:name=".PassengerFormActivity" />
         <activity android:name=".BookingConfirmationActivity"/>
         <activity android:name=".SignupActivity"/>
+        <activity android:name=".UserBookingsActivity"/>
     </application>
 
 </manifest>
