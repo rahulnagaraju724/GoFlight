@@ -34,7 +34,7 @@ public class FlightSearchResultsActivity extends AppCompatActivity {
         String departureDate = getIntent().getStringExtra("departureDate");
 
         // Perform flight search using the search parameters
-        List<Flight> flights = dbHelper.searchFlights(source, destination, departureDate);
+        List<Flight> flights = dbHelper.searchFlights2(source, destination, departureDate);
 
         for(Flight flight:flights){
 

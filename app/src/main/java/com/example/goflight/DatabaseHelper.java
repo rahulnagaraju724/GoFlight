@@ -268,4 +268,43 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return passenger;
     }
 
+
+    public List<Flight> searchFlights2(String source, String destination, String departureDate) {
+        List<Flight> flights = new ArrayList<>();
+
+        SQLiteDatabase db = this.getWritableDatabase(); // Obtain a reference to the writable database
+
+        // Perform database query to search for flights
+        // Construct your SQL query here based on the search criteria and execute it using SQLiteDatabase
+
+        // Example:
+        String query = "SELECT * FROM " + DatabaseHelper.TABLE_FLIGHT +
+                " WHERE " + DatabaseHelper.COLUMN_SOURCE + " = ?" +
+                " AND " + DatabaseHelper.COLUMN_DESTINATION + " = ?" +
+                " AND " + DatabaseHelper.COLUMN_DEPARTURE_DATE + " = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{source, destination, departureDate});
+
+        // Iterate over the cursor and create Flight objects
+        if (cursor.moveToFirst()) {
+            do {
+                Flight flight = new Flight();
+                flight.setFlightId(cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_FLIGHT_ID)));
+                flight.setSource(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_SOURCE)));
+                flight.setDestination(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_DESTINATION)));
+                flight.setFlightName(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_FLIGHT_NAME)));
+                flight.setAirlineName(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_AIRLINE_NAME)));
+                flight.setDepartureDate(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_DEPARTURE_DATE)));
+                flight.setArrivalDate(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_ARRIVAL_DATE)));
+                flight.setPrice(cursor.getDouble(cursor.getColumnIndex(DatabaseHelper.COLUMN_PRICE)));
+                flights.add(flight);
+            } while (cursor.moveToNext());
+        }
+
+        // Close cursor after use
+        cursor.close();
+
+        return flights;
+    }
+
+
 }

@@ -130,6 +130,8 @@ public class MainActivity extends AppCompatActivity {
             String destination = destinationInput.getText().toString();
             String departureDate = departureDateInput.getText().toString();
 
+            System.out.println("Source:"+source+" Destination:"+destination+" and departureDate:"+departureDate);
+
             // Start FlightSearchResultsActivity and pass search parameters as intent extras
             Intent intent = new Intent(MainActivity.this, FlightSearchResultsActivity.class);
             intent.putExtra("source", source);
@@ -159,7 +161,22 @@ public class MainActivity extends AppCompatActivity {
                 this,
                 (datePicker, selectedYear, selectedMonth, selectedDayOfMonth) -> {
                     // Set selected date to TextInputEditText
-                    String selectedDate = selectedDayOfMonth + "/" + (selectedMonth + 1) + "/" + selectedYear;
+
+                    String selectedMonthStr;
+                    if(selectedMonth+1<10){
+                        selectedMonthStr="0"+Integer.toString(selectedMonth + 1);
+                    }else{
+                        selectedMonthStr=Integer.toString(selectedMonth + 1);
+                    }
+
+                    String selectedDayOfMonthStr;
+                    if(selectedDayOfMonth<10){
+                        selectedDayOfMonthStr="0"+Integer.toString(selectedDayOfMonth);
+                    }else{
+                        selectedDayOfMonthStr=Integer.toString(selectedDayOfMonth);
+                    }
+
+                    String selectedDate = selectedYear + "-" +selectedMonthStr +  "-" + selectedDayOfMonthStr ;
                     departureDateEditText.setText(selectedDate);
                 },
                 year, month, dayOfMonth);

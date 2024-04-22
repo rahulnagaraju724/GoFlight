@@ -67,7 +67,7 @@ public class ManualFlightDataGenerator {
         insertFlight("Beijing", "Los Angeles", "Air China", "CA987", "2024-05-05 09:00", "2024-05-06 16:00", 1000.0);
 
         // Flight 17
-        insertFlight("London", "Sydney", "British Airways", "BA709", "2024-05-06 14:00", "2024-05-07 05:00", 1400.0);
+            insertFlight("London", "Sydney", "British Airways", "BA709", "2024-05-06 14:00", "2024-05-07 05:00", 1400.0);
 
         // Flight 18
         insertFlight("Moscow", "Paris", "Aeroflot", "SU303", "2024-05-07 16:00", "2024-05-07 19:00", 600.0);
