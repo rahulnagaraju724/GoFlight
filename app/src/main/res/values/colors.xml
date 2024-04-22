@@ -41,4 +41,12 @@
 
     <!-- Warning Color -->
     <color name="warning_color">#FFFF00</color>
+
+<!--    <color name="background_color">#FFFFFF</color>-->
+    <color name="edit_text_bg">#F0F0F0</color>
+    <color name="button_bg">#FF4081</color>
+
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorError">#B00020</color>
+    <color name="myBlue">#3498db</color>
 </resources>

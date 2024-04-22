@@ -7,4 +7,9 @@
     <string name="passport">Passport Number</string>
     <string name="nationality">Nationality</string>
     <string name="date_of_birth">Date of Birth (YYYY-MM-DD)</string>
+
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="signup_button_label">Sign Up</string>
+
 </resources>
