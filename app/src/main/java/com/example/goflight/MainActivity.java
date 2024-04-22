@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-
+//
 //        ManualFlightDataGenerator manualFlightDataGenerator=new ManualFlightDataGenerator(this);
 //        manualFlightDataGenerator.generateManualFlightData();
 

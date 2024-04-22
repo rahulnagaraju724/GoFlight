@@ -38,7 +38,7 @@ public class FlightSearchResultsActivity extends AppCompatActivity {
 
         for(Flight flight:flights){
 
-            flight.calculateDuration();
+//            flight.calculateDuration();
 
             System.out.println(flight.toString());
 
