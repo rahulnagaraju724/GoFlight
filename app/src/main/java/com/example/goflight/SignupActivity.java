@@ -2,6 +2,7 @@ package com.example.goflight;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ public class SignupActivity extends AppCompatActivity {
     private EditText emailEditText;
     private EditText passwordEditText;
     private Button signupButton;
+    private View loginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,13 @@ public class SignupActivity extends AppCompatActivity {
         emailEditText = findViewById(R.id.emailEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
         signupButton = findViewById(R.id.signupButton);
+
+        loginButton = findViewById(R.id.loginButton);
+        // Set OnClickListener for the login button
+        loginButton.setOnClickListener(view -> {
+            startActivity(new Intent( SignupActivity.this, LoginActivity.class));
+            finish();
+        });
 
         signupButton.setOnClickListener(view -> createUser(emailEditText.getText().toString(), passwordEditText.getText().toString()));
     }

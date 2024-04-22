@@ -6,11 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@color/background_color">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:src="@drawable/img_2"
         android:contentDescription="@string/app_name"
         android:layout_marginBottom="32dp"/>
@@ -21,9 +22,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        app:boxStrokeColor="@color/colorPrimary"
+        app:boxStrokeColor="@color/primary_color"
         app:boxStrokeWidth="2dp"
-        app:hintTextColor="@color/colorPrimary"
+        app:hintTextColor="@color/primary_color"
         app:errorTextColor="@color/colorError">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -31,7 +32,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:hint="@string/email_hint"/>
+            android:hint="@string/email_hint"
+            android:textColor="@color/primary_text_color"
+            android:textColorHint="@color/hint_text_color" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -41,9 +44,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        app:boxStrokeColor="@color/colorPrimary"
+        app:boxStrokeColor="@color/primary_color"
         app:boxStrokeWidth="2dp"
-        app:hintTextColor="@color/colorPrimary"
+        app:hintTextColor="@color/primary_color"
         app:errorTextColor="@color/colorError">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -51,7 +54,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:hint="@string/password_hint"/>
+            android:hint="@string/password_hint"
+            android:textColor="@color/primary_text_color"
+            android:textColorHint="@color/hint_text_color" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
