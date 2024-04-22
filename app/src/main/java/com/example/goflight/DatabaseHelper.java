@@ -172,4 +172,100 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.insert(TABLE_PASSENGER, null, values);
     }
 
+    public Flight getFlightById(int flightId) {
+        Flight flight = null;
+
+        SQLiteDatabase db = this.getReadableDatabase(); // Obtain a reference to the readable database
+
+        // Perform database query to search for flight by ID
+        String query = "SELECT * FROM " + DatabaseHelper.TABLE_FLIGHT +
+                " WHERE " + DatabaseHelper.COLUMN_FLIGHT_ID + " = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(flightId)});
+
+        // Check if the cursor has data
+        if (cursor.moveToFirst()) {
+            // Create a Flight object and populate it with data from the cursor
+            flight = new Flight();
+            flight.setFlightId(cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_FLIGHT_ID)));
+            flight.setSource(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_SOURCE)));
+            flight.setDestination(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_DESTINATION)));
+            flight.setFlightName(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_FLIGHT_NAME)));
+            flight.setAirlineName(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_AIRLINE_NAME)));
+            flight.setDepartureDate(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_DEPARTURE_DATE)));
+            flight.setArrivalDate(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_ARRIVAL_DATE)));
+            flight.setPrice(cursor.getDouble(cursor.getColumnIndex(DatabaseHelper.COLUMN_PRICE)));
+        }
+
+        // Close cursor after use
+        cursor.close();
+
+        return flight;
+    }
+
+    public Booking getBookingById(int bookingId) {
+        Booking booking = null;
+
+        SQLiteDatabase db = this.getReadableDatabase(); // Obtain a reference to the readable database
+
+        // Perform a database query to search for a booking by ID
+        String query = "SELECT * FROM " + DatabaseHelper.TABLE_BOOKING +
+                " WHERE " + DatabaseHelper.COLUMN_BOOKING_ID + " = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(bookingId)});
+
+        // Check if the cursor has data
+        if (cursor.moveToFirst()) {
+            // Create a Booking object and populate it with data from the cursor
+            booking = new Booking();
+            booking.setBookingId(cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_BOOKING_ID)));
+            booking.setBookingDate(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_BOOKING_DATE)));
+            booking.setSeatNumber(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_SEAT_NUMBER)));
+            booking.setPaymentStatus(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_PAYMENT_STATUS)));
+            // Optionally, you can also set the associated Flight and Passenger objects if needed
+            int flightId = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_FLIGHT_ID));
+            Flight flight = getFlightById(flightId); // Assuming you have a method to retrieve Flight by ID
+            booking.setFlight(flight);
+
+            int passengerId = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_PASSENGER_ID));
+            Passenger passenger = getPassengerById(passengerId); // Assuming you have a method to retrieve Passenger by ID
+            booking.setPassenger(passenger);
+
+            booking.setPrice(cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_PRICE)));
+        }
+
+        // Close cursor after use
+        cursor.close();
+
+        return booking;
+    }
+
+
+    public Passenger getPassengerById(int passengerId) {
+        Passenger passenger = null;
+
+        SQLiteDatabase db = this.getReadableDatabase(); // Obtain a reference to the readable database
+
+        // Perform a database query to search for a passenger by ID
+        String query = "SELECT * FROM " + DatabaseHelper.TABLE_PASSENGER +
+                " WHERE " + DatabaseHelper.COLUMN_PASSENGER_ID + " = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(passengerId)});
+
+        // Check if the cursor has data
+        if (cursor.moveToFirst()) {
+            // Create a Passenger object and populate it with data from the cursor
+            passenger = new Passenger();
+            passenger.setPassengerId(cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_PASSENGER_ID)));
+            passenger.setFirstName(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_FIRST_NAME)));
+            passenger.setLastName(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_LAST_NAME)));
+            passenger.setPhoneNumber(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_MOBILE_NUMBER)));
+            passenger.setNationality(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_NATIONALITY)));
+            passenger.setDateOfBirth(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_DATE_OF_BIRTH)));
+            passenger.setPassport(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_PASSPORT)));
+        }
+
+        // Close cursor after use
+        cursor.close();
+
+        return passenger;
+    }
+
 }
