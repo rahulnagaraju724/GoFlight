@@ -61,7 +61,7 @@ public class Flight {
         this.departureDate = departureDate;
         this.arrivalDate = arrivalDate;
         this.price = price;
-        this.calculateDuration();
+//        this.calculateDuration();
     }
 
     public int getFlightId() {
