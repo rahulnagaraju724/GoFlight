@@ -9,6 +9,17 @@
     android:gravity="center"
     android:background="@color/background_color">
 
+    <!-- Stylish "Go Flight" Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go Flight"
+        android:textColor="@color/primary_color"
+        android:textSize="36sp"
+        android:letterSpacing="0.2"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp"/>
+
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"

@@ -61,6 +61,14 @@ public class Booking {
         this.userName = userName;
     }
 
+    public Booking( String bookingDate, String seatNumber, String paymentStatus, String userName) {
+
+        this.bookingDate = bookingDate;
+        this.seatNumber = seatNumber;
+        this.paymentStatus = paymentStatus;
+        this.userName = userName;
+    }
+
     public Booking( String bookingDate, String seatNumber, String paymentStatus, Flight flight, Passenger passenger, int price, String userName) {
         this.bookingDate = bookingDate;
         this.seatNumber = seatNumber;
@@ -114,17 +122,28 @@ public class Booking {
 
 
 
+//    @Override
+//    public String toString() {
+//        return "Booking{" +
+//                "bookingId=" + bookingId +
+//                ", bookingDate='" + bookingDate + '\'' +
+//                ", seatNumber='" + seatNumber + '\'' +
+//                ", paymentStatus=" + paymentStatus +
+//                '}';
+//    }
+
+
     @Override
     public String toString() {
         return "Booking{" +
                 "bookingId=" + bookingId +
                 ", bookingDate='" + bookingDate + '\'' +
                 ", seatNumber='" + seatNumber + '\'' +
-                ", paymentStatus=" + paymentStatus +
+                ", paymentStatus='" + paymentStatus + '\'' +
+                ", price=" + price +
+                ", userName='" + userName + '\'' +
                 '}';
     }
-
-
 
     public Flight getFlight() {
         return flight;

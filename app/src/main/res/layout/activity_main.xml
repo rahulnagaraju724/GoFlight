@@ -144,9 +144,17 @@
 <!--                android:textColor="@color/black"-->
 <!--                style="@style/Widget.MaterialComponents.Button.OutlinedButton"-->
 
-
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/userBookings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_button_bg"
+        android:text="@string/user_bookings"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>

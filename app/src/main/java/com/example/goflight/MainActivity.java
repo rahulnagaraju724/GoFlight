@@ -94,6 +94,24 @@ public class MainActivity extends AppCompatActivity {
         dbHelper = new DatabaseHelper(this);
         db = dbHelper.getWritableDatabase(); // This will create or open the database for writing
 
+        List<Booking> bookings=dbHelper.getAllBookings();
+        System.out.println("Found Bookings");
+        for(Booking booking:bookings){
+            System.out.println(booking.toString());
+        }
+        System.out.println("after Bookings print");
+
+        // Assuming 'dbHelper' is an instance of your DatabaseHelper class
+        dbHelper.updateAllBookingsToUserName("rahul");
+
+        List<Booking> bookings2=dbHelper.getAllBookings();
+        System.out.println("Found Bookings");
+        for(Booking booking:bookings2){
+            System.out.println(booking.toString());
+        }
+        System.out.println("after Bookings print");
+
+
         // Find EditText views by their IDs
         sourceInput = findViewById(R.id.source_input);
         destinationInput = findViewById(R.id.destination_input);
@@ -140,6 +158,16 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+
+
+        Button userBookingsButton = findViewById(R.id.userBookings);
+        userBookingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Redirect to user bookings page
+                startActivity(new Intent(MainActivity.this, UserBookingsActivity.class));
+            }
+        });
 
     }
 
