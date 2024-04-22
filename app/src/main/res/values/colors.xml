@@ -53,5 +53,6 @@
     <color name="your_primary_color">#007ACC</color>
     <color name="black">#000</color>
     <color name="semi_transparent_color">#80000000</color>
-
+<color name="light_gray">#D3D3D3</color>
+<color name="dark_gray">#A9A9A9</color>
 </resources>
