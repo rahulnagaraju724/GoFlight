@@ -49,4 +49,6 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorError">#B00020</color>
     <color name="myBlue">#3498db</color>
+
+    <color name="your_primary_color">#007ACC</color>
 </resources>

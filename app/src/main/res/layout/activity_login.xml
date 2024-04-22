@@ -15,7 +15,6 @@
         android:src="@drawable/img_2"
         android:contentDescription="@string/app_name"
         android:layout_marginBottom="32dp"/>
-<!--        app:tint="@color/primary_color" -->
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailTextInputLayout"
@@ -69,5 +68,22 @@
         android:textColor="@android:color/white"
         android:background="@drawable/rounded_button_bg"
         android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/signupPrompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/signup_prompt"
+        android:textColor="@color/primary_text_color" />
+
+    <Button
+        android:id="@+id/signupButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signup_button_label"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_button_bg"
+        android:layout_marginTop="8dp" />
 
 </LinearLayout>

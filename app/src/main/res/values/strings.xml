@@ -10,8 +10,10 @@
 
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
-    <string name="signup_button_label">Sign Up</string>
 
 
     <string name="login_button_label">Login</string>
+    <string name="signup_prompt">Don\'t have an account yet? Sign up now!</string>
+    <string name="signup_button_label">Sign up</string>
+    <string name="login_prompt">Already have an account? Log in here!</string>
 </resources>
