@@ -1,35 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
     <ImageView
-    android:id="@+id/app_icon"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_centerInParent="true"
-    android:src="@drawable/img_2" />
+        android:id="@+id/app_icon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/img_2" />
 
     <TextView
-    android:id="@+id/app_name"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/app_icon"
-    android:layout_centerHorizontal="true"
-    android:text="Go Flight"
-    android:textColor="@color/primary_color"
-    android:textSize="40sp"
-    android:textStyle="bold" />
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
+        android:text="Go Flight"
+        android:textColor="@color/primary_color"
+        android:textSize="40sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tagline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/app_name"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="Your Ticket to the World"  android:textColor="@color/primary_color"
+        android:layout_gravity="center"
+        android:layout_marginTop="200dp"
+        android:text="Your Ticket to the World"
+        android:textColor="@color/primary_color"
         android:textSize="18sp" />
 
-</RelativeLayout>
+</FrameLayout>
