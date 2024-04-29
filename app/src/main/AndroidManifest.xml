@@ -13,7 +13,9 @@
         android:theme="@style/Theme.GoFlight"
         tools:targetApi="31">
 
-        <activity android:name=".LoginActivity"
+        <!-- AndroidManifest.xml -->
+        <activity
+            android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +23,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity" />
+<!--        <activity android:name=".LoginActivity"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+
+<!--        <activity android:name=".MainActivity" />-->
 
 <!--        <activity-->
 <!--            android:name=".MainActivity"-->
@@ -39,6 +49,8 @@
         <activity android:name=".BookingConfirmationActivity"/>
         <activity android:name=".SignupActivity"/>
         <activity android:name=".UserBookingsActivity"/>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginActivity"/>
     </application>
 
 </manifest>
