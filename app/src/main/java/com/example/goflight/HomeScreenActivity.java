@@ -27,6 +27,24 @@ public class HomeScreenActivity extends AppCompatActivity {
                 startActivity(new Intent(HomeScreenActivity.this, MainActivity.class));
             }
         });
+
+        ImageButton userBookingsButton = findViewById(R.id.view_bookings_button);
+        userBookingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Redirect to user bookings page
+                startActivity(new Intent(HomeScreenActivity.this, UserBookingsActivity.class));
+            }
+        });
+
+        ImageButton specialOffersButton = findViewById(R.id.special_offers_button);
+        specialOffersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Redirect to user bookings page
+                startActivity(new Intent(HomeScreenActivity.this, FlightOffersActivity.class));
+            }
+        });
     }
 
     // Other methods of MainActivity...
