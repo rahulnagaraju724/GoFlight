@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Header -->
+    <ImageView
+        android:id="@+id/app_logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/img_2" />
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Go Flight"
+        android:textColor="@color/primary_color"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tagline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Your Ticket to the World"
+        android:textColor="@color/primary_color"
+        android:textSize="18sp" />
+
+    <!-- Quick Actions -->
+    <LinearLayout
+        android:id="@+id/quick_actions_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tagline"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <!-- Search Flights -->
+        <ImageButton
+            android:id="@+id/view_search_flights"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:padding="20dp"
+            android:src="@drawable/ic_search_flights"
+            android:contentDescription="Search Flights"
+            android:scaleType="centerInside"/>
+
+        <!-- View Upcoming Bookings -->
+        <ImageButton
+            android:id="@+id/view_bookings_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:padding="20dp"
+            android:src="@drawable/ic_upcoming_bookings"
+            android:contentDescription="View Upcoming Bookings"
+            android:scaleType="centerInside"/>
+
+        <!-- Special Offers -->
+        <ImageButton
+            android:id="@+id/special_offers_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:padding="20dp"
+            android:src="@drawable/ic_special_offers"
+            android:contentDescription="Special Offers"
+            android:scaleType="centerInside"/>
+
+    </LinearLayout>
+
+    <!-- Footer -->
+    <LinearLayout
+        android:id="@+id/footer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/customer_support_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Need Assistance? Contact Customer Support"
+            android:textColor="@color/primary_color"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/customer_support_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="Contact Support"
+            android:textColor="@android:color/white"
+            android:background="@drawable/button_background"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
