@@ -5,10 +5,31 @@
     android:background="@color/white">
 
     <ImageView
-        android:id="@+id/imageView"
+    android:id="@+id/app_icon"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:src="@drawable/img_2" />
+
+    <TextView
+    android:id="@+id/app_name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/app_icon"
+    android:layout_centerHorizontal="true"
+    android:text="Go Flight"
+    android:textColor="@color/primary_color"
+    android:textSize="40sp"
+    android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tagline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:src="@drawable/img_2" />
+        android:layout_below="@id/app_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Your Ticket to the World"  android:textColor="@color/primary_color"
+        android:textSize="18sp" />
 
 </RelativeLayout>
