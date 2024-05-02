@@ -485,6 +485,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.update(TABLE_BOOKING, values, null, null);
     }
 
+    public void updateBookingSeatNumber(int bookingId, String newSeatNumber) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_SEAT_NUMBER, newSeatNumber);
+
+        // Update the booking with the new seat number
+        db.update(TABLE_BOOKING, values, COLUMN_BOOKING_ID + " = ?", new String[]{String.valueOf(bookingId)});
+    }
+
+    public void deleteBookingById(int bookingId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_BOOKING, COLUMN_BOOKING_ID + " = ?", new String[]{String.valueOf(bookingId)});
+    }
+
+
 
 
 }
