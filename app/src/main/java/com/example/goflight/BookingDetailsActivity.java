@@ -24,16 +24,19 @@ public class BookingDetailsActivity extends AppCompatActivity {
     private Booking booking;
     private EditText seatNumberEditText; // Input field for editing seat number
 
+    int bookingId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_details);
 
+        DatabaseHelper dbHelper = new DatabaseHelper(this);
+
         Intent intent = getIntent();
         if (intent != null && intent.hasExtra("bookingId")) {
 //            booking = (Booking) intent.getSerializableExtra("booking");
-            int bookingId = intent.getIntExtra("bookingId", -1);
-            DatabaseHelper dbHelper = new DatabaseHelper(this);
+            bookingId = intent.getIntExtra("bookingId", -1);
             Booking booking = dbHelper.getBookingById( bookingId);
             // Populate views with booking data
             populateBookingDetails(booking);
@@ -103,7 +106,9 @@ public class BookingDetailsActivity extends AppCompatActivity {
                 String newSeatNumber = seatNumberEditText.getText().toString().trim();
                 if (!newSeatNumber.isEmpty()) {
                     // Update the booking with the new seat number
-                    //booking.setSeatNumber(newSeatNumber);
+                    DatabaseHelper dbHelper = new DatabaseHelper(BookingDetailsActivity.this);
+                    dbHelper.updateBookingSeatNumber(bookingId, newSeatNumber);
+
                     // Redirect to view the updated booking details
                     redirectToUpdatedBooking();
                 } else {
@@ -119,7 +124,7 @@ public class BookingDetailsActivity extends AppCompatActivity {
     private void redirectToUpdatedBooking() {
         // Redirect to view the updated booking details
         Intent intent = new Intent(BookingDetailsActivity.this, BookingDetailsActivity.class);
-        intent.putExtra("bookingId", booking.getBookingId());
+        intent.putExtra("bookingId", bookingId);
         startActivity(intent);
         finish(); // Finish this activity to prevent going back to it from the updated details activity
     }
@@ -143,7 +148,7 @@ public class BookingDetailsActivity extends AppCompatActivity {
         // Redirect to UserBookingsActivity
         // Example:
         DatabaseHelper dbHelper = new DatabaseHelper(this);
-        //Booking booking = dbHelper.deleteBookingById(booking.getBookingId());
+        dbHelper.deleteBookingById(bookingId);
         Intent intent = new Intent(BookingDetailsActivity.this, UserBookingsActivity.class);
         startActivity(intent);
         finish(); // Finish this activity to prevent going back to it from the user bookings activity
