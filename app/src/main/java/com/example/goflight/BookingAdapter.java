@@ -13,7 +13,17 @@ import com.example.goflight.Booking;
 import java.util.List;
 
 public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingViewHolder> {
-    private List<Booking> bookings;
+    private static List<Booking> bookings;
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener {
+        void onItemClick(Booking booking);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
+
 
     public BookingAdapter(List<Booking> bookings) {
         this.bookings = bookings;
@@ -23,7 +33,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
     @Override
     public BookingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_booking, parent, false);
-        return new BookingViewHolder(itemView);
+        return new BookingViewHolder(itemView,mListener);
     }
 
     @Override
@@ -48,7 +58,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
         private TextView phoneSeatTextView;
         private TextView pricePaymentTextView;
 
-        public BookingViewHolder(@NonNull View itemView) {
+        public BookingViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             // Initialize TextViews
             bookingIdTextView = itemView.findViewById(R.id.text_booking_id);
@@ -59,6 +69,18 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
             passengerTextView = itemView.findViewById(R.id.text_passenger);
             phoneSeatTextView = itemView.findViewById(R.id.text_phone_seat);
             pricePaymentTextView = itemView.findViewById(R.id.text_price_payment);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onItemClick(bookings.get(position));
+                        }
+                    }
+                }
+            });
         }
 
         public void bind(Booking booking) {

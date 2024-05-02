@@ -64,6 +64,7 @@
         <activity android:name=".LoginActivity"/>
         <activity android:name=".HomeScreenActivity"/>
         <activity android:name=".FlightOffersActivity"/>
+        <activity android:name=".BookingDetailsActivity"/>
     </application>
 
 </manifest>

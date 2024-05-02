@@ -1,5 +1,6 @@
 package com.example.goflight;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -51,6 +52,15 @@ public class UserBookingsActivity extends AppCompatActivity {
 
             // Display bookings in RecyclerView
             BookingAdapter bookingAdapter = new BookingAdapter(bookings);
+            bookingAdapter.setOnItemClickListener(new BookingAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(Booking booking) {
+                    // Handle item click
+                    Intent intent = new Intent(UserBookingsActivity.this, BookingDetailsActivity.class);
+                    intent.putExtra("bookingId", booking.getBookingId());
+                    startActivity(intent);
+                }
+            });
             recyclerView.setAdapter(bookingAdapter);
 
             System.out.println("After adapter");
