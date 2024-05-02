@@ -95,21 +95,21 @@ public class MainActivity extends AppCompatActivity {
         db = dbHelper.getWritableDatabase(); // This will create or open the database for writing
 
         List<Booking> bookings=dbHelper.getAllBookings();
-        System.out.println("Found Bookings");
+        System.out.println("Get all bookings inside main");
         for(Booking booking:bookings){
             System.out.println(booking.toString());
         }
-        System.out.println("after Bookings print");
+        System.out.println("after Bookings print inside main");
 
         // Assuming 'dbHelper' is an instance of your DatabaseHelper class
-        dbHelper.updateAllBookingsToUserName("rahul");
+//        dbHelper.updateAllBookingsToUserName("rahul333@gmail.com");
 
         List<Booking> bookings2=dbHelper.getAllBookings();
-        System.out.println("Found Bookings");
+        System.out.println("Get all bookings inside main after change");
         for(Booking booking:bookings2){
             System.out.println(booking.toString());
         }
-        System.out.println("after Bookings print");
+        System.out.println("after Bookings print inside main after changed");
 
 
         // Find EditText views by their IDs
