@@ -40,8 +40,9 @@ public class UserBookingsActivity extends AppCompatActivity {
             Toast.makeText(this, "Current User Email: " + userEmail, Toast.LENGTH_SHORT).show();
 
             dbHelper = new DatabaseHelper(this);
-//            List<Booking> bookings=dbHelper.getBookingsByUserName(currentUser.getEmail());
-            List<Booking> bookings=dbHelper.getAllBookings();
+            List<Booking> bookings=dbHelper.getBookingsByUserName(currentUser.getEmail());
+//            List<Booking> bookings=dbHelper.getAllBookings();
+            System.out.println("Current username is:"+currentUser.getEmail()+", ended.");
             System.out.println("Found Bookings");
             for(Booking booking:bookings){
                 System.out.println(booking.toString());

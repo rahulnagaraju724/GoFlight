@@ -154,6 +154,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_SEAT_NUMBER, booking.getSeatNumber());
         values.put(COLUMN_PRICE, booking.getPrice());
         values.put(COLUMN_PAYMENT_STATUS, booking.getPaymentStatus());
+        System.out.println("Save booking. The user name you have provided is:"+booking.getUserName()+", ended.");
         values.put(COLUMN_USER_NAME, booking.getUserName()); // Add the username
         // Insert the ContentValues into the database
         return db.insert(TABLE_BOOKING, null, values);
@@ -170,6 +171,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_SEAT_NUMBER, booking.getSeatNumber());
         values.put(COLUMN_PRICE, booking.getPrice());
         values.put(COLUMN_PAYMENT_STATUS, booking.getPaymentStatus());
+        System.out.println("Save booking 2 params.The user name you have provided is:"+userName+", ended.");
         values.put(COLUMN_USER_NAME, userName); // Add the username
 
         // Insert the ContentValues into the database
@@ -252,6 +254,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             booking.setPassenger(passenger);
 
             booking.setPrice(cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_PRICE)));
+            booking.setUserName(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_NAME)));
         }
 
         // Close cursor after use
@@ -337,11 +340,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // Perform a database query to search for bookings by user name
         String query = "SELECT * FROM " + DatabaseHelper.TABLE_BOOKING +
-                " INNER JOIN " + DatabaseHelper.TABLE_PASSENGER +
-                " ON " + DatabaseHelper.TABLE_BOOKING + "." + DatabaseHelper.COLUMN_PASSENGER_ID +
-                " = " + DatabaseHelper.TABLE_PASSENGER + "." + DatabaseHelper.COLUMN_PASSENGER_ID +
-                " WHERE " + DatabaseHelper.COLUMN_FIRST_NAME + " || ' ' || " +
-                DatabaseHelper.COLUMN_LAST_NAME + " = ?";
+                " WHERE " + DatabaseHelper.COLUMN_USER_NAME + " = ?";
+
         Cursor cursor = db.rawQuery(query, new String[]{userName});
 
         // Iterate over the cursor and create Booking objects
@@ -352,10 +352,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 booking.setBookingDate(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_BOOKING_DATE)));
                 booking.setSeatNumber(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_SEAT_NUMBER)));
                 booking.setPaymentStatus(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_PAYMENT_STATUS)));
+                booking.setPrice(cursor.getInt(cursor.getColumnIndex(COLUMN_PRICE)));
+                booking.setUserName(cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)));
+
                 // Optionally, you can also set the associated Flight object if needed
                 int flightId = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_FLIGHT_ID));
+                booking.setUserName(cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)));
                 Flight flight = getFlightById(flightId); // Assuming you have a method to retrieve Flight by ID
                 booking.setFlight(flight);
+
+                int passengerId = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_PASSENGER_ID));
+                Passenger passenger = getPassengerById(passengerId); // Assuming you have a method to retrieve Passenger by ID
+                booking.setPassenger(passenger);
 
                 // Add booking to the list
                 bookings.add(booking);
@@ -426,6 +434,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 booking.setPassenger(passenger);
 
                 booking.setPrice(cursor.getInt(cursor.getColumnIndex(COLUMN_PRICE)));
+                booking.setUserName(cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)));
 
                 bookings.add(booking);
             } while (cursor.moveToNext());
