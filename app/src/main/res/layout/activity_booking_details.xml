@@ -5,11 +5,14 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <include layout="@layout/toolbar_layout" />
+
     <!-- Include item_booking.xml to display booking details -->
     <include layout="@layout/item_booking"
         android:id="@+id/booking_details_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="26dp"
         android:layout_alignParentTop="true"/>
 
     <!-- Buttons for edit and delete actions -->

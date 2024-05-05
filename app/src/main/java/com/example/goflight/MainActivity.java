@@ -2,6 +2,7 @@ package com.example.goflight;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.app.DatePickerDialog;
@@ -47,6 +48,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Set OnClickListener to the toolbar
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the home page
+                Intent intent = new Intent(MainActivity.this, HomeScreenActivity.class);
+                startActivity(intent);
+//                finish(); // Optional: finish the current activity to prevent going back to it when pressing back
+            }
+        });
 //
 //        FirebaseApp.initializeApp(this);
 //

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.util.List;
 
@@ -30,6 +31,20 @@ public class BookingDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_details);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Set OnClickListener to the toolbar
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the home page
+                Intent intent = new Intent(BookingDetailsActivity.this, HomeScreenActivity.class);
+                startActivity(intent);
+//                finish(); // Optional: finish the current activity to prevent going back to it when pressing back
+            }
+        });
 
         DatabaseHelper dbHelper = new DatabaseHelper(this);
 

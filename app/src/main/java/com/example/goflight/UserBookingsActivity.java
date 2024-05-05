@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +25,21 @@ public class UserBookingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bookings);
+
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Set OnClickListener to the toolbar
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the home page
+                Intent intent = new Intent(UserBookingsActivity.this, HomeScreenActivity.class);
+                startActivity(intent);
+//                finish(); // Optional: finish the current activity to prevent going back to it when pressing back
+            }
+        });
 
         // Initialize RecyclerView
         recyclerView = findViewById(R.id.recycler_view_bookings);

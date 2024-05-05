@@ -1,6 +1,7 @@
 package com.example.goflight;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,20 @@ public class BookingConfirmationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.booking_confirmation);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Set OnClickListener to the toolbar
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the home page
+                Intent intent = new Intent(BookingConfirmationActivity.this, HomeScreenActivity.class);
+                startActivity(intent);
+//                finish(); // Optional: finish the current activity to prevent going back to it when pressing back
+            }
+        });
 
         // Retrieve booking, flight, and passenger IDs from intent extras
         Intent intent = getIntent();

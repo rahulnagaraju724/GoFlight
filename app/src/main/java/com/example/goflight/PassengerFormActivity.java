@@ -2,11 +2,13 @@ package com.example.goflight;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,6 +27,20 @@ public class PassengerFormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.passenger);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Set OnClickListener to the toolbar
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the home page
+                Intent intent = new Intent(PassengerFormActivity.this, HomeScreenActivity.class);
+                startActivity(intent);
+//                finish(); // Optional: finish the current activity to prevent going back to it when pressing back
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
         // Get the current user
