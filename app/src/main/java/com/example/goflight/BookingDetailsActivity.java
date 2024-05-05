@@ -46,6 +46,24 @@ public class BookingDetailsActivity extends AppCompatActivity {
             }
         });
 
+//        Button homeButton = findViewById(R.id.homeButton);
+//        homeButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Create an Intent to navigate back to the home screen (replace HomeActivity.class with the actual home activity)
+//                Intent intent = new Intent(BookingDetailsActivity.this, HomeScreenActivity.class);
+//                // Add any extra data or flags if needed
+//                // For example, you can use intent.putExtra("key", "value") to pass data to the home activity
+//
+//                // Start the home activity
+//                startActivity(intent);
+//
+//                // Optionally, finish the current activity to remove it from the back stack
+////                finish();
+//            }
+//        });
+
+
         DatabaseHelper dbHelper = new DatabaseHelper(this);
 
         Intent intent = getIntent();
