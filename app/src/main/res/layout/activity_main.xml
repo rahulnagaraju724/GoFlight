@@ -4,6 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background_color">
 
+    <include layout="@layout/toolbar_layout" />
+
     <!-- Background Image -->
     <ImageView
         android:id="@+id/background_image"

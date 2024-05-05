@@ -4,12 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include layout="@layout/toolbar_layout" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_bookings"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
+        android:layout_marginTop="75dp"
+        android:padding="20dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:background="@android:color/white" />
 
+    <Button
+        android:id="@+id/homeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click to go to Home"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_button_bg"
+        android:layout_below="@+id/recycler_view_bookings"
+        android:layout_marginTop="8dp" />
 </RelativeLayout>
