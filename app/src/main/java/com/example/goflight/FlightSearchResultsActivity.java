@@ -61,7 +61,19 @@ public class FlightSearchResultsActivity extends AppCompatActivity {
         }
 
         // Update RecyclerView with search results
-        flightAdapter.setFlights(flights);
-        flightAdapter.notifyDataSetChanged();
+//        flightAdapter.setFlights(flights);
+//        flightAdapter.notifyDataSetChanged();
+
+        if (flights.isEmpty()) {
+            // No flights found, redirect to search flight activity
+            Intent intent = new Intent(FlightSearchResultsActivity.this, MainActivity.class);
+            intent.putExtra("message", "No flights found for the entered details.");
+            startActivity(intent);
+            finish(); // Finish the current activity
+        } else {
+            // Update RecyclerView with search results
+            flightAdapter.setFlights(flights);
+            flightAdapter.notifyDataSetChanged();
+        }
     }
 }

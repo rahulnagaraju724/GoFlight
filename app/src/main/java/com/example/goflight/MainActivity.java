@@ -63,6 +63,15 @@ public class MainActivity extends AppCompatActivity {
 //                finish(); // Optional: finish the current activity to prevent going back to it when pressing back
             }
         });
+
+        // Retrieve the message from the intent extras
+        String message = getIntent().getStringExtra("message");
+
+        // Check if the message is not null and not empty
+        if (message != null && !message.isEmpty()) {
+            // Display the message as a toast
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        }
 //
 //        FirebaseApp.initializeApp(this);
 //
